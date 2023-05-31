@@ -2,7 +2,6 @@ use clap::Parser;
 use image::{DynamicImage, GenericImageView, ImageBuffer, RgbImage, Rgba};
 use std::process::exit;
 
-// Simple program.
 #[derive(Parser, Debug)]
 #[command(author, version, about)]
 struct Args {
@@ -13,6 +12,29 @@ struct Args {
     /// kernel size for sampling.
     #[arg(short = 'k', long, value_name = "KERNEL")]
     kernal: i32,
+}
+
+// calculates and returns average color of a quadrant in Rgba() format.
+fn average_quadrant_color(colors: &Vec<Rgba<u8>>) -> Rgba<u8> {
+    let mut r: u32 = 0;
+    let mut g: u32 = 0;
+    let mut b: u32 = 0;
+    let mut a: u32 = 0;
+    let number: u32 = if colors.len() == 0 { 1 } else { colors.len() } as u32;
+
+    for color in colors {
+        r += color.0[0] as u32;
+        g += color.0[1] as u32;
+        b += color.0[2] as u32;
+        a += color.0[3] as u32;
+    }
+
+    return Rgba([
+        (r / number) as u8,
+        (g / number) as u8,
+        (b / number) as u8,
+        (a / number) as u8,
+    ]);
 }
 
 fn main() {
@@ -70,13 +92,19 @@ fn main() {
                         (true, false) => 1,
                         (false, false) => 0,
                     };
+                    let current_pixel: Rgba<u8> =
+                        original_image.get_pixel(operation_x as u32, operation_y as u32);
 
-                    quadrants[qudrant_index]
-                        .push(original_image.get_pixel(operation_x as u32, operation_y as u32));
+                    quadrants[qudrant_index].push(current_pixel);
                 }
             }
 
             // calculate average of all quadrants.
+            let mut quadrant_averages: Vec<Rgba<u8>> = vec![];
+
+            for quadrant in quadrants {
+                quadrant_averages.push(average_quadrant_color(&quadrant));
+            }
         }
     }
 }
