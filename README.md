@@ -26,3 +26,22 @@ kuwahara-filter.exe --filename "your_image.jpg" --kernel 12
 ```
 
 kernel can be any interger above 3 and not divisble by 2. With testing I have found a value somewhere around 7 - 15 works the best.
+
+<h1>Images</h1>
+original image:
+
+<img src="https://raw.githubusercontent.com/prashantrahul141/kuwahara-filter/main/meta/original.jpg" width="600"/>
+
+<br>
+with kernel = 9:<br>
+<img src="https://raw.githubusercontent.com/prashantrahul141/kuwahara-filter/main/meta/9.jpg" width="600"/>
+
+<br>
+with kernel = 11:<br>
+<img src="https://raw.githubusercontent.com/prashantrahul141/kuwahara-filter/main/meta/11.jpg" width="600"/>
+
+<br>
+with kernel = 15:<br>
+<img src="https://raw.githubusercontent.com/prashantrahul141/kuwahara-filter/main/meta/15.jpg" width="600"/>
+
+Photo by Flo Dahm: https://www.pexels.com/photo/couple-passing-on-street-541217/
