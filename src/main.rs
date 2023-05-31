@@ -10,7 +10,7 @@ struct Args {
     filename: String,
 
     /// kernel size for sampling.
-    #[arg(short = 'k', long, value_name = "KERN:EL")]
+    #[arg(short = 'k', long, value_name = "KERNEL")]
     kernel: i32,
 }
 
