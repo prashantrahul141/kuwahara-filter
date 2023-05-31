@@ -159,8 +159,8 @@ fn main() {
         }
     }
 
-    println!("Done looping, took {:?}ms", start_time.elapsed());
-    println!("Writing image [result.jpg].");
+    println!("Done looping, took {:?}s.", start_time.elapsed().as_secs());
+    println!("Writing image result.jpg.");
     // saving buffer to disk.
     match save_buffer(
         "result.jpg",
