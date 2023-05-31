@@ -10,8 +10,8 @@ struct Args {
     filename: String,
 
     /// kernel size for sampling.
-    #[arg(short = 'k', long, value_name = "KERNEL")]
-    kernal: i32,
+    #[arg(short = 'k', long, value_name = "KERN:EL")]
+    kernel: i32,
 }
 
 // calculates and returns average color of a quadrant in Rgba() format.
@@ -53,12 +53,12 @@ fn main() {
     // reading command line arguments
     let args = Args::parse();
 
-    // check kernal value.
-    if args.kernal < 3 || args.kernal % 2 == 0 {
-        println!("[Error] Kernal cannot be smaller than 3, and cannot be divisble by 2.");
+    // check kernel value.
+    if args.kernel < 3 || args.kernel % 2 == 0 {
+        println!("[Error] kernel cannot be smaller than 3, and cannot be divisble by 2.");
         exit(1)
     }
-    let qdrnt_size = (args.kernal - 1) / 2;
+    let qdrnt_size = (args.kernel - 1) / 2;
     // opening image
     println!("Reading Image : {}", args.filename);
     let original_image: DynamicImage = match image::open(Args::parse().filename) {
