@@ -25,4 +25,4 @@ put your `"your_image.jpg"` in the build folder, same place the `kuwahara-filter
 kuwahara-filter.exe --filename "your_image.jpg" --kernel 12
 ```
 
-kernel can be any interger above 3 and not divisble by 2.
+kernel can be any interger above 3 and not divisble by 2. With testing I have found a value somewhere around 7 - 15 works the best.
