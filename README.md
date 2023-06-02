@@ -11,7 +11,7 @@ The Kuwahara filter is a non-linear smoothing filter used in image processing fo
 git clone https://github.com/prashantrahul141/kuwahara-filter
 ```
 
-2. Build using cargo.
+2. Build using cargo, or download binaries from the <a href="https://github.com/prashantrahul141/kuwahara-filter/releases">releases page</a>.
 
 ```sh
 cargo build
